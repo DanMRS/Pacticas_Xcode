@@ -8,9 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @ObservedObject var model = PostListViewModel()
+    
+    //empaquetadores de propiedades da propiedades reactivas
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        
+        List(model.posts){ post in
+            Text(post.title)
+        }
     }
 }
 
